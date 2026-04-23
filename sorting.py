@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
 
 def random_numbers(count, low=0, high=100):
     return [random.randint(low, high) for _ in range(count)]
@@ -23,6 +24,8 @@ def selection_sort(seznam):
 def bubble_sort(seznam):
     noovy = seznam.copy()
     delka = len(noovy)
+    plt.ion()
+    plt.show()
     zmena = True
     while zmena:
         zmena = False
@@ -30,6 +33,17 @@ def bubble_sort(seznam):
             if noovy[i] > noovy[i+1]:
                 noovy[i], noovy[i+1] = noovy[i+1], noovy[i]
                 zmena = True
+            index_highlight1 = i
+            index_highlight2 = i + 1
+            colors = ["steelblue"] * len(values)
+            colors[index_highlight1] = "tomato"
+            colors[index_highlight2] = "tomato"
+            plt.clf()
+            plt.bar(range(len(values)), values, color=colors)
+            plt.title("Bubble Sort")
+            plt.pause(0.1)
+    plt.ioff()
+    plt.show()
     return noovy
 
 
