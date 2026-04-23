@@ -44,13 +44,40 @@ class StudentsGrades:
         return noovy
 
 
+
 if __name__ == "__main__":
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    pocet = results.count()
 
-    print(results.count())  # 9
-    print(results.get_by_index(2))  # 91
-    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]
-    print(results.get_grade(3))
-    print(results.find(100))
-    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
-    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]
+    print(f"Test psalo {pocet} studentů")
+    for i in range(pocet):
+        body = results.get_by_index(i)
+        znamka = results.get_grade(i)
+        print(f"Student {i}: {body} points - {znamka} ")
+    sto = results.find(100)
+    print(f"Indexy studentů kteří měli 100 bodů {sto}")
+    serazeno = results.get_sorted()
+
+    print(serazeno)
+
+    from sorting import random_numbers
+    random_results = StudentsGrades(random_numbers(30, 0, 100))
+
+    pocet = random_results.count()
+
+    print(f"Test psalo {pocet}  random studentů")
+    for i in range(pocet):
+        body = random_results.get_by_index(i)
+        znamka = random_results.get_grade(i)
+        print(f"Random student {i}: {body} points - {znamka} ")
+    sto = random_results.find(100)
+    print(f"Indexy random studentů kteří měli 100 bodů {sto}")
+    serazeno = random_results.get_sorted()
+
+    # print(results.count())  # 9
+    # print(results.get_by_index(2))  # 91
+    # print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]
+    # print(results.get_grade(3))
+    # print(results.find(100))
+    # print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
+    # print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]
