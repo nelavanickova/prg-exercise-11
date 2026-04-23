@@ -20,6 +20,21 @@ def selection_sort(seznam):
 
     return seznam_novy
 
+def bubble_sort(seznam):
+    noovy = seznam.copy()
+    delka = len(noovy)
+    zmena = True
+    while zmena:
+        zmena = False
+        for i in range(len(noovy)-1):
+            if noovy[i] > noovy[i+1]:
+                noovy[i], noovy[i+1] = noovy[i+1], noovy[i]
+                zmena = True
+    return noovy
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -28,4 +43,5 @@ if __name__ == "__main__":
 
     small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
 
-    print(selection_sort(values))
+    # print(selection_sort(values))
+    print(bubble_sort(values))
